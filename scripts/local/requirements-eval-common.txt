@@ -1,0 +1,11 @@
+# Shared public evaluation/scoring dependencies; no GPU inference engine.
+nltk
+absl-py
+langdetect
+immutabledict
+syllapy
+emoji
+rouge-score
+jinja2
+psutil
+evalplus==0.3.1

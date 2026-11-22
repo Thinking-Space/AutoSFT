@@ -1,0 +1,1 @@
+"""Stubs components for AutoSFT."""

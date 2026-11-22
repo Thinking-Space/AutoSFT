@@ -1,0 +1,9 @@
+{
+  "extends": "smoke-agent.json",
+  "name": "smoke-synthesis",
+  "components": ["executor", "analysis", "synthesis"],
+  "objective": {
+    "description": "Validate two complete AutoSFT research rounds on the bundled smoke pool under the fixed protocol. Complete the baseline training and evaluation, dispatch all four analysis roles using the baseline evidence, and use their reports to request a small synthesis batch for a specific instruction-following gap. Include verified, accepted synthesis delivery rows in the second round training data with the required provenance, then complete training and evaluation and report the handoffs and artifacts. This is a bounded integration check; do not stop after only enabling synthesis or generating data without training on it.",
+    "target_scores": {"ifeval": 1.0}
+  }
+}

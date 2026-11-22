@@ -1,0 +1,9 @@
+{
+  "extends": "code-baseline.json",
+  "name": "code-synthesis",
+  "components": [
+    "executor",
+    "analysis",
+    "synthesis"
+  ]
+}

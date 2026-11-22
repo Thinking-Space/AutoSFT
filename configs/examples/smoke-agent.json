@@ -1,0 +1,13 @@
+{
+  "extends": "../paper/shared.json",
+  "name": "smoke-agent",
+  "components": ["executor", "analysis"],
+  "objective": {
+    "description": "Validate two complete AutoSFT research rounds on the bundled smoke pool. Prepare data, execute training and evaluation, inspect the resulting evidence and report execution issues under the fixed protocol.",
+    "target_scores": {"ifeval": 1.0}
+  },
+  "resources": {"token_budget": 4096, "max_rounds": 2, "train_gpus": 1},
+  "training": {"seq_length": 128, "global_batch_size": 4, "context_parallel": 1},
+  "evaluation": {"repeats": 1, "max_seq_len": 8192, "max_out_len": 128},
+  "data": {"pool": "examples"}
+}

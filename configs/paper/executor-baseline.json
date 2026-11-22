@@ -1,0 +1,21 @@
+{
+  "extends": "shared.json",
+  "name": "executor-baseline",
+  "components": [],
+  "resources": {
+    "token_budget": 10000000,
+    "max_rounds": 33
+  },
+  "evaluation": {
+    "benchmarks": [
+      "ifeval",
+      "ifbench"
+    ]
+  },
+  "objective": {
+    "target_scores": {
+      "ifeval": 0.8,
+      "ifbench": 0.5
+    }
+  }
+}

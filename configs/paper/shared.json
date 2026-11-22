@@ -1,0 +1,60 @@
+{
+  "name": "paper",
+  "domain": "sft_data",
+  "components": [],
+  "objective": {
+    "description": "Improve verifiable instruction following through SFT data research.",
+    "target_scores": {
+      "ifeval": 0.8
+    }
+  },
+  "resources": {
+    "token_budget": 3000000,
+    "max_rounds": 30,
+    "train_gpus": 8
+  },
+  "training": {
+    "model": "Qwen/Qwen3-1.7B-Base",
+    "backend": "megatron",
+    "epochs": 3,
+    "seq_length": 32768,
+    "global_batch_size": 16,
+    "micro_batch_size": 1,
+    "context_parallel": 4,
+    "tensor_parallel": 1,
+    "deterministic": false,
+    "optimizer": {
+      "name": "adam",
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.1,
+      "lr": 0.0001,
+      "min_lr": 1e-07,
+      "schedule": "cosine",
+      "warmup_fraction": 0.05
+    }
+  },
+  "evaluation": {
+    "backend": "opencompass_vllm",
+    "benchmarks": [
+      "ifeval"
+    ],
+    "repeats": 10,
+    "temperature": 0.7,
+    "shots": 0
+  },
+  "data": {
+    "pool": "data/pools/instruction_following"
+  },
+  "agent": {
+    "harness": "codex",
+    "model": "gpt-5.5",
+    "reasoning_effort": "medium"
+  },
+  "providers": {
+    "generation_model": "deepseek-v4-flash"
+  }
+}

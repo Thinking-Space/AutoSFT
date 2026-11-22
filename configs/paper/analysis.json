@@ -1,0 +1,8 @@
+{
+  "extends": "shared.json",
+  "name": "analysis",
+  "components": [
+    "executor",
+    "analysis"
+  ]
+}

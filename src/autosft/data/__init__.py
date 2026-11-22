@@ -1,0 +1,1 @@
+"""Data components for AutoSFT."""

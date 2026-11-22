@@ -1,0 +1,27 @@
+# Install into a GPU-machine virtualenv matching its CUDA stack.
+# torch, transformer-engine and flash-attn must be built for the same CUDA/PyTorch ABI.
+transformers==4.57.3
+numpy<2
+tensorboard
+sentencepiece
+tiktoken
+safetensors
+pyyaml
+packaging
+psutil
+ninja
+einops
+wrapt
+zstandard
+regex
+pandas
+
+# Distributed checkpoint and tokenizer dependencies.
+zarr<3
+tensorstore!=0.1.46,!=0.1.72
+tqdm
+protobuf
+termcolor
+six
+pillow
+librosa

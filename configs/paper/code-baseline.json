@@ -1,0 +1,30 @@
+{
+  "extends": "shared.json",
+  "name": "code-baseline",
+  "components": [
+    "executor"
+  ],
+  "resources": {
+    "token_budget": 100000000,
+    "max_rounds": 15
+  },
+  "training": {
+    "seq_length": 8192
+  },
+  "evaluation": {
+    "benchmarks": [
+      "mbpp_plus"
+    ],
+    "repeats": 3,
+    "backend": "evalplus_vllm"
+  },
+  "data": {
+    "pool": "data/pools/code"
+  },
+  "objective": {
+    "description": "Improve Python program correctness through SFT data research.",
+    "target_scores": {
+      "mbpp_plus": 0.7
+    }
+  }
+}

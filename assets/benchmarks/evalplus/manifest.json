@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "evaluator": "evalplus==0.3.1",
+  "datasets": {
+    "humaneval_plus": {
+      "file": "humaneval_plus.jsonl",
+      "version": "v0.1.10",
+      "count": 164,
+      "sha256": "42526ec0e7d5f3ee0b06d6ced98f8c8bae3d76519151bfb3d36f79010645bd7f",
+      "source_sha256": "272720b90ac375502c8ed23cd791c2a93dfb22a911641a494da74a426c09f101",
+      "source_kind": "supplied_file",
+      "release_url": "https://github.com/evalplus/humanevalplus_release/releases/download/v0.1.10/HumanEvalPlus.jsonl.gz"
+    },
+    "mbpp_plus": {
+      "file": "mbpp_plus.jsonl",
+      "version": "v0.2.0",
+      "count": 378,
+      "sha256": "b54e762755248ca411b523c917fa9f93c07b5ff2966bf60b3917b853926a3dad",
+      "source_sha256": "af43697e8791c4c149bdfd6b489d8b5412507551ac20e28a439f650b8225db63",
+      "source_kind": "supplied_file",
+      "release_url": "https://github.com/evalplus/mbppplus_release/releases/download/v0.2.0/MbppPlus.jsonl.gz"
+    }
+  }
+}

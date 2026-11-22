@@ -1,0 +1,4 @@
+# Code protocol backend, in its own virtualenv (not alongside vLLM).
+# SGLang pins its matching PyTorch/CUDA-kernel and Transformers dependencies.
+sglang==0.5.6
+-r requirements-eval-common.txt

@@ -1,0 +1,7 @@
+{
+  "extends": "executor-baseline.json",
+  "name": "executor",
+  "components": [
+    "executor"
+  ]
+}

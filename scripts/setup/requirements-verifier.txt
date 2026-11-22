@@ -1,0 +1,6 @@
+# CPU instruction-following scorers; shared by online and offline setup.
+absl-py
+nltk
+langdetect==1.0.9
+emoji
+syllapy

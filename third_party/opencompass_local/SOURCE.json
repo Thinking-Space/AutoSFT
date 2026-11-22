@@ -1,0 +1,49 @@
+{
+  "package": "OpenCompass 0.5.4 local scorer extract",
+  "files": [
+    {
+      "path": "IFEval/evaluation_main.py",
+      "source_sha256": "01e7453f2dec2d6d47576f7208fc668a5ff9ade14579ecbc96d91ce267e652b3"
+    },
+    {
+      "path": "IFEval/instructions_registry.py",
+      "source_sha256": "eee0d0ff86a1db249863269d196acd57f95624c47ba6a5caf1c67c7e3c7ea6ac"
+    },
+    {
+      "path": "IFEval/ifeval.py",
+      "source_sha256": "cc3e405a0037b35757949551014b20ce788c36b58384e3f35670ec23de954e8d"
+    },
+    {
+      "path": "IFEval/instructions.py",
+      "source_sha256": "03bfdc8e69940959f4193e53923a329f1a0bad9a37d9226f0acc3d59da3322ad"
+    },
+    {
+      "path": "IFEval/instructions_util.py",
+      "source_sha256": "47bdd3a1b593ca4090a1815af976d54450579e713e672eb6aa3bb5bf5c1b0a33"
+    },
+    {
+      "path": "IFBench/instructions_registry.py",
+      "source_sha256": "08eb67d25d11ed5db5d3a22dd76433805ae1f4dbb7d7cd4fdfa61da26ce1300c"
+    },
+    {
+      "path": "IFBench/evaluation_lib.py",
+      "source_sha256": "829a06bdf550083f438cd9f7d1fd6d585fc186f31039cd0b15562c8da170bf92"
+    },
+    {
+      "path": "IFBench/ifbench.py",
+      "source_sha256": "b0acf5281b331c4dd7ed1f463ecb924704ae58c6b73ebdea8d0eebe8618b4eb2"
+    },
+    {
+      "path": "IFBench/instructions.py",
+      "source_sha256": "da1e87ce8fd2b5012e1dddde8bf25d37885915f9443ca96273b4ffd6715290aa"
+    },
+    {
+      "path": "IFBench/instructions_util.py",
+      "source_sha256": "15888363c7f0f9a8fa4e30e6c28c5455ae5e7bcc25fac145f4e6a5f626c8a7b5"
+    }
+  ],
+  "changes": [
+    "Removed framework dataset loaders/base class; data is repository JSONL.",
+    "Rebased package imports; scoring functions unchanged."
+  ]
+}

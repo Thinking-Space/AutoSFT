@@ -1,0 +1,6 @@
+# CPU Megatron -> HuggingFace conversion environment.
+#
+# Install a compatible PyTorch build on the local host first; this overlay
+# reuses it. The bootstrap script validates that
+# build with torch.from_numpy after installing this NumPy overlay.
+numpy==1.26.4

@@ -1,0 +1,8 @@
+# Paper instruction-following and code evaluation with local vLLM.
+# This is not a CUDA/PyTorch compatibility lock: install a PyTorch/CUDA pair
+# supported by vLLM 0.11.0 for the target GPU before installing this file.
+# Keep it in a separate evaluation environment when the training environment
+# has a different PyTorch or Transformer Engine build.
+vllm==0.11.0
+transformers==4.57.3
+-r requirements-eval-common.txt

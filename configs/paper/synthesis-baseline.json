@@ -1,0 +1,23 @@
+{
+  "extends": "shared.json",
+  "name": "synthesis-baseline",
+  "components": [
+    "executor",
+    "analysis"
+  ],
+  "resources": {
+    "token_budget": 100000000
+  },
+  "evaluation": {
+    "benchmarks": [
+      "ifeval",
+      "ifbench"
+    ]
+  },
+  "objective": {
+    "target_scores": {
+      "ifeval": 0.8,
+      "ifbench": 0.5
+    }
+  }
+}

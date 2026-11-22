@@ -1,0 +1,10 @@
+{
+  "extends": "shared.json",
+  "name": "analysis-baseline",
+  "components": [
+    "executor"
+  ],
+  "resources": {
+    "max_rounds": 50
+  }
+}

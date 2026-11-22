@@ -1,0 +1,1 @@
+"""Checkpoint components for AutoSFT."""

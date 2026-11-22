@@ -1,0 +1,2 @@
+class MCoreSavePlan:
+    pass
