@@ -1,6 +1,6 @@
 <div align="center">
 
-# AutoSFT: An Agentic System for Automated Data Research<br>in Supervised Fine-Tuning
+# AutoSFT: An Agentic System for Automated Data Research in Supervised Fine-Tuning
 
 [![Paper](https://img.shields.io/badge/Paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/pdf/2610.22194) [![GitHub](https://img.shields.io/badge/AutoSFT-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Thinking-Space/AutoSFT) [![Hugging Face Daily Paper](https://img.shields.io/badge/Daily--Paper-fcd022?style=for-the-badge&logo=huggingface&logoColor=000)](https://huggingface.co/papers/2610.22194) [![X Thread](https://img.shields.io/badge/X--Thread-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/HBX_hbx/status/2110969562271482355)
 
@@ -30,11 +30,11 @@
 
 ![AutoSFT: a meta agent coordinates execution, analysis and synthesis](figs/overview.png)
 
-AutoSFT is the first implementation of **RSI-Service**, a research service between a human objective and the code that trains AI. A user states a goal and a resource limit; agents prepare data, run experiments, inspect evidence and decide what to try next. This study focuses on SFT data research while keeping the base model, training algorithm and evaluation protocol fixed. The service is organized so further optimization domains can share its objectives, task lifecycle and experiment history.
+AutoSFT is the first implementation of **RSI-Service**, a research service between a human objective and the code that trains AI. A user states a goal and a resource limit, while agents prepare data, run experiments, inspect evidence and decide what to try next. This study focuses on SFT data research while keeping the base model, training algorithm and evaluation protocol fixed. The service is organized so further optimization domains can share its objectives, task lifecycle and experiment history.
 
 The meta agent owns the data decision. An executor handles training, checkpoint conversion and evaluation in a separate context. Four analysis subagents examine training data, failure cases, learning dynamics and research history, each returning an executable proposal. A synthesis subagent creates supervision for undersupplied capabilities. These components are independently configurable, and every normal training round starts from the same base model.
 
-Our empirical study finds that an unstructured agent explores little of the available data space and often overattributes score changes to its latest intervention. Separating execution from research and adding complementary analysis improves its behavior, while synthesis helps some capabilities and remains uneven on code. The paper's six data-action families are retrospective labels for analyzing realized changes; they are not an operator menu injected into the agent.
+Our empirical study finds that an unstructured agent explores little of the available data space and often overattributes score changes to its latest intervention. Separating execution from research and adding complementary analysis improves its behavior, while synthesis helps some capabilities and remains uneven on code. The paper's six data-action families are retrospective labels for analyzing realized changes.
 
 <a id="getting-started"></a>
 
@@ -42,11 +42,7 @@ Our empirical study finds that an unstructured agent explores little of the avai
 
 ### Environment Setup
 
-Activate a Python environment with a PyTorch/CUDA build selected for your GPU
-and driver. Install Transformer Engine with the pinned Megatron checkout's
-requirement `>=2.6.0a0,<2.8.0`, and install FlashAttention against that exact
-same PyTorch/CUDA ABI. Verify `torch`, `transformer_engine.pytorch` and
-`flash_attn` import before installing the Python requirements:
+Activate a Python environment with a PyTorch/CUDA build selected for your GPU and driver. Install Transformer Engine with the pinned Megatron checkout's requirement `>=2.6.0a0,<2.8.0`, and install FlashAttention against that exact same PyTorch/CUDA ABI. Verify `torch`, `transformer_engine.pytorch` and `flash_attn` import before installing the Python requirements:
 
 ```bash
 python - <<'PY'
@@ -56,7 +52,7 @@ print("native training extensions imported")
 PY
 ```
 
-Then install the training dependencies from `scripts/local/requirements-train.txt`. For evaluation, install a vLLM-supported PyTorch/CUDA pair first in a dedicated environment, then install `scripts/local/requirements-eval.txt`; that file pins vLLM and Transformers but cannot select the correct native ABI for every GPU or PyTorch build. AutoSFT uses the active Python for data preparation, training and conversion by default; evaluation can use a separate interpreter when vLLM needs a different PyTorch build. Follow [runtime setup](docs/local-runtime.md) before installing native dependencies. The paper uses Qwen3-1.7B-Base and eight NVIDIA H800 GPUs for training, with one H800 for evaluation.
+Then install the training dependencies from `scripts/local/requirements-train.txt`. For evaluation, install a vLLM-supported PyTorch/CUDA pair first in a dedicated environment, then install `scripts/local/requirements-eval.txt`; that file pins vLLM and Transformers but cannot select the correct native ABI for every GPU or PyTorch build. AutoSFT uses the active Python for data preparation, training and conversion by default; evaluation can use a separate interpreter when vLLM needs a different PyTorch build. Follow [runtime setup](docs/local-runtime.md) before installing native dependencies. The paper uses Qwen3-1.7B-Base and 8 NVIDIA H800 GPUs for training, with 1 H800 for evaluation.
 
 ```bash
 pip install -e .
@@ -195,24 +191,6 @@ autosft round \
 
 </details>
 
-<a id="paper-results"></a>
-
-## 📊 Paper Results
-
-| Comparison | Metric | Without component | With component |
-| --- | --- | ---: | ---: |
-| Analysis, equal first 30 rounds | IFEval | 60.60 | 67.10 |
-| Synthesis | IFEval | 78.15 | 81.58 |
-| Synthesis | IFBench | 49.02 | 51.95 |
-| Analysis on code | MBPP+ | 61.11 | 65.78 |
-| Synthesis on code, added after analysis | MBPP+ | 65.78 | 64.81 |
-
-The executor reduces meta-agent compactions from ten to five over the compared snapshots. The analysis baseline reaches 62.35 when extended to 50 rounds; the first row compares both runs' first 30 rounds. These numbers are reported by the paper. The repository provides the experiment protocols; original search traces and exact data snapshots are not bundled.
-
-Supported benchmarks are `ifeval`, `ifbench`, `humaneval_plus` and `mbpp_plus`. Paper presets use local vLLM generation with OpenCompass instruction-following scorers or EvalPlus code scoring. Custom code experiments can select SGLang through the evaluation block.
-
-See [architecture](docs/architecture.md), [the experiment contract](AGENTS.md) and [the skill catalog](skills/README.md) for implementation boundaries and role procedures.
-
 <a id="citation"></a>
 
 ## 🎈 Citation
@@ -228,4 +206,3 @@ If you find this work helpful, please cite us:
 }
 ```
 
-AutoSFT is released under the [MIT License](LICENSE). Third-party components retain their upstream licenses.
